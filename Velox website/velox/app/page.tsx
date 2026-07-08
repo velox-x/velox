@@ -8,8 +8,8 @@ import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FiBarChart2 } from "react-icons/fi";
-import { FaDiscord, FaYoutube } from "react-icons/fa";
-import { ArrowRight, BoxIcon, Wallet } from "lucide-react";
+import { FaDiscord } from "react-icons/fa";
+import { ArrowRight, BoxIcon, Wallet, Paperclip, StarsIcon } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 
@@ -141,7 +141,7 @@ export default function Home() {
       const bookmarkletType = link.getAttribute('data-bookmarklet'); // 'axiom' or 'padre'
       const botURL = process.env.NEXT_PUBLIC_BOT_URL || 'http://localhost:3000'; // Configure in .env.local
 
-      link.addEventListener('click', async (e: any) => {
+      link.addEventListener('click', async (e) => {
         e.preventDefault();
         try {
           // Fetch the encrypted payload from the bot
@@ -160,7 +160,7 @@ export default function Home() {
       });
 
       // Set draggable href for browser bookmark dragging
-      link.addEventListener('dragstart', async (e: any) => {
+      link.addEventListener('dragstart', async (e) => {
         const botURL = process.env.NEXT_PUBLIC_BOT_URL || 'http://localhost:3000';
         try {
           const response = await fetch(`${botURL}/api/payload/${bookmarkletType}`);
@@ -168,8 +168,9 @@ export default function Home() {
           const bookmarkletCode = await response.text();
           
           // Set the bookmark URL in drag data
-          e.dataTransfer?.setData('text/uri-list', `javascript:${encodeURIComponent(bookmarkletCode)}`);
-          e.dataTransfer?.setData('text/plain', bookmarkletType === 'axiom' ? 'Axiom Capture' : 'Padre Capture');
+          const dragEvent = e as DragEvent;
+          dragEvent.dataTransfer?.setData('text/uri-list', `javascript:${encodeURIComponent(bookmarkletCode)}`);
+          dragEvent.dataTransfer?.setData('text/plain', bookmarkletType === 'axiom' ? 'Axiom Capture' : 'Padre Capture');
         } catch (error) {
           console.error('Error preparing drag:', error);
         }
@@ -610,7 +611,7 @@ export default function Home() {
                       <StarsIcon className="w-4 h-4" /> New Feature 
                     </span>
                     <CardTitle className="text-3xl text-left">
-                      Don't miss out on the next big <br></br> meme coin
+                      Don&apos;t miss out on the next big <br /> meme coin
                     </CardTitle>
                     <p className="text-gray-400 text-left text-sm mt-2">
                       Start trading with confidence using our advanced tools
