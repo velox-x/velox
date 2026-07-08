@@ -4,24 +4,14 @@ import { Button } from "@/components/ui/button";
 import { DM_Sans } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Link from "next/link";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { CardDemo } from "@/components/ui/carddemo";
 import { FiBarChart2 } from "react-icons/fi";
-import { FaDiscord, FaFilter, FaTwitter, FaYoutube } from "react-icons/fa";
-import { ArrowRight, BoxIcon, Paperclip, StarHalf, StarIcon, StarsIcon, Wallet } from "lucide-react";
+import { FaDiscord, FaYoutube } from "react-icons/fa";
+import { ArrowRight, BoxIcon, Wallet } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
-import { BsThreeDots } from "react-icons/bs";
-import { GrBundle } from "react-icons/gr";
 import { useEffect, useState } from "react";
-import Head from "next/head";
 
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
@@ -47,11 +37,6 @@ export default function Home() {
   });
 
   const [featuresRef, featuresInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const [walletRef, walletInView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });

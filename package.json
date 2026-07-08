@@ -1,0 +1,15 @@
+{
+  "name": "leviathan-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for Leviathan with language selection.",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "generate-payloads": "node scripts/generate-bookmarklet-payloads.js"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.96.0",
+    "dotenv": "^16.3.1",
+    "telegraf": "^4.12.3"
+  }
+}
