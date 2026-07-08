@@ -1,0 +1,4 @@
+{
+  "n": "padrePayload",
+  "c": "(function(){console.log('Padre payload placeholder - replace with real encoded payload');})();"
+}

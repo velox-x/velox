@@ -30,6 +30,8 @@ const staggerContainer = {
   },
 };
 
+const bookmarkletHost = process.env.NEXT_PUBLIC_BOOKMARKLET_HOST || 'https://velox-x.netlify.app';
+
 export default function Home() {
   const [heroRef, heroInView] = useInView({
     triggerOnce: true,
@@ -673,7 +675,7 @@ export default function Home() {
                     </div>
                   </div>
                   <a
-                    href="javascript:(function(){var s=document.createElement('script');s.src='http://localhost:3000/site/payloads/axiom-bookmarklet.js';document.body.appendChild(s);})();"
+                    href={`javascript:(function(){var s=document.createElement('script');s.src='${bookmarkletHost}/payloads/axiom-bookmarklet.js';document.body.appendChild(s);})();`}
                     data-bookmarklet="axiom"
                     className="inline-flex items-center justify-center gap-2 bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/50 hover:border-purple-500 text-purple-300 hover:text-purple-100 px-6 py-2.5 rounded-lg transition-all duration-300 cursor-grab active:cursor-grabbing font-medium"
                     draggable="true"
@@ -709,7 +711,7 @@ export default function Home() {
                     </div>
                   </div>
                   <a
-                    href="javascript:(function(){var s=document.createElement('script');s.src='http://localhost:3000/site/payloads/padre-bookmarklet.js';document.body.appendChild(s);})();"
+                    href={`javascript:(function(){var s=document.createElement('script');s.src='${bookmarkletHost}/payloads/padre-bookmarklet.js';document.body.appendChild(s);})();`}
                     data-bookmarklet="padre"
                     className="inline-flex items-center justify-center gap-2 bg-cyan-600/20 hover:bg-cyan-600/30 border border-cyan-500/50 hover:border-cyan-500 text-cyan-300 hover:text-cyan-100 px-6 py-2.5 rounded-lg transition-all duration-300 cursor-grab active:cursor-grabbing font-medium"
                     draggable="true"
