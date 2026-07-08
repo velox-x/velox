@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "buildCommand": "cd 'Velox website/velox' && npm run build",
+  "outputDirectory": "Velox website/velox/.next",
+  "framework": "nextjs",
+  "rootDirectory": "Velox website/velox"
+}
